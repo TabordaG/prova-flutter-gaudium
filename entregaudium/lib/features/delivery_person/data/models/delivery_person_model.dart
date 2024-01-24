@@ -48,6 +48,9 @@ class DeliveryPersonModel extends DeliveryPersonEntity {
       role: role,
       description: description,
       historic: historic,
+      totalQtd: calculateQuantity(),
+      totalValue: calculateValue(),
+      totalRating: calculateRating(),
     );
   }
 
@@ -58,6 +61,32 @@ class DeliveryPersonModel extends DeliveryPersonEntity {
       description: entity.description,
       historic: entity.historic,
     );
+  }
+
+  int calculateQuantity() {
+    int total = 0;
+    for (HistoricEntity element in historic ?? []) {
+      total += element.qtd ?? 0;
+    }
+    return total;
+  }
+
+  double calculateValue() {
+    double total = 0;
+    for (HistoricEntity element in historic ?? []) {
+      total += element.value ?? 0;
+    }
+
+    return total / (historic?.length ?? 1);
+  }
+
+  double calculateRating() {
+    double total = 0;
+    for (HistoricEntity element in historic ?? []) {
+      total += element.rating ?? 0;
+    }
+
+    return total / (historic?.length ?? 1);
   }
 }
 

@@ -7,12 +7,18 @@ class DeliveryPersonEntity extends Equatable {
   String? role;
   String? description;
   List<HistoricEntity>? historic;
+  int? totalQtd;
+  double? totalValue;
+  double? totalRating;
 
   DeliveryPersonEntity({
     this.name,
     this.role,
     this.description,
     this.historic,
+    this.totalQtd,
+    this.totalValue,
+    this.totalRating,
   });
 
   @override
@@ -21,6 +27,9 @@ class DeliveryPersonEntity extends Equatable {
         role,
         description,
         historic,
+        totalQtd,
+        totalValue,
+        totalRating,
       ];
 }
 

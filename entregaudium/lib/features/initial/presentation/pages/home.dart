@@ -54,8 +54,13 @@ class _HomePageViewState extends State<HomePageView> {
 
   _floatingButton() {
     return FloatingActionButton(
+      backgroundColor: AppColors.blueStrong,
       onPressed: () => Get.toNamed(Routes.deliveryPersonProfile),
-      child: const Icon(Icons.person),
+      child: const Icon(
+        Icons.person,
+        color: AppColors.blackStrong,
+        size: 38,
+      ),
     );
   }
 
@@ -64,7 +69,7 @@ class _HomePageViewState extends State<HomePageView> {
       backgroundColor: Colors.blue,
       title: const Text(
         HomeString.homeTitle,
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: AppColors.whiteText1),
       ),
     );
   }
